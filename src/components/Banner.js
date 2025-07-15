@@ -43,7 +43,7 @@ const Banner = () => {
 
   return (
     <div className="relative w-full px-4 py-4 bg-[#fdf6ef]">
-      <div className="relative w-full h-[240px] md:h-[440px] rounded-3xl overflow-hidden shadow-md">
+      <div className="relative w-full h-[310px] md:h-[440px] rounded-3xl overflow-hidden shadow-md">
         {banners.map((banner, index) => (
           <img
             key={index}

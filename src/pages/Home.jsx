@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import CategorySlider from "../components/CategorySlider"; // ⭐ Import here
+import CategorySlider from "../components/CategorySlider";
+import InstaWorthy from "../components/InstaWorthy";
+
 
 const images = [
   {
@@ -89,6 +91,8 @@ const Home = () => {
 
       {/* Category Card Slider (like original site) */}
       <CategorySlider /> {/* ⭐ This is the new section */}
+      {/* Insta-Worthy Section */}
+      <InstaWorthy />
 
       {/* Shop By Category */}
       <section className="px-4 py-8">

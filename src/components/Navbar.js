@@ -64,12 +64,17 @@ const Navbar = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [hoveredSubItem, setHoveredSubItem] = useState(null);
   const [mobileDropdowns, setMobileDropdowns] = useState({});
+  const [mobileSubDropdowns, setMobileSubDropdowns] = useState({});
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [cartCount, setCartCount] = useState(2);
 
   const toggleMobileDropdown = (title) => {
     setMobileDropdowns((prev) => ({ ...prev, [title]: !prev[title] }));
+  };
+
+  const toggleMobileSubDropdown = (title) => {
+    setMobileSubDropdowns((prev) => ({ ...prev, [title]: !prev[title] }));
   };
 
   const handleSearch = (e) => {
@@ -79,20 +84,23 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Marquee */}
       <div className="bg-[#9c3587] text-white text-sm py-1 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap px-4">
           🔔 5% OFF Above ₹499 | Code: PARTYPROPZ05 ➜
         </div>
       </div>
 
+      {/* Main Navbar */}
       <div className="bg-[#fdf6ef] px-4 py-2 border-b border-[#ffcc29] flex justify-between items-center sticky top-0 z-50">
         <div className="flex items-center gap-4">
           <button className="md:hidden text-[#9c3587]" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-          <img src="logo.png" alt="logo" className="h-10" />
+          <img src="logo.png" alt="logo" className="h-12" />
         </div>
 
+        {/* Desktop Nav */}
         <div className="hidden md:flex gap-6 text-[#9c3587] text-sm font-medium">
           {categories.map((cat) => (
             <div
@@ -146,6 +154,7 @@ const Navbar = () => {
           ))}
         </div>
 
+        {/* Right icons */}
         <div className="flex gap-4 items-center text-[#9c3587]">
           <button onClick={() => setSearchOpen(true)}><Search size={20} /></button>
           <User />
@@ -156,10 +165,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="bg-[#ffcc29] text-black text-sm font-semibold px-4 py-1 flex justify-start">
-        by <span className="font-bold ml-1">brnd.me</span>
+      {/* Yellow Strip */}
+      <div className="bg-[#ffcc29] py-1 flex justify-center items-center">
+        <span className="text-black text-sm font-semibold">by <span className="font-bold ml-1">brnd.me</span></span>
+        <img src="logo2.png" alt="brand" className="h-6 mr-2" />
       </div>
 
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="fixed inset-0 bg-[#fdf6ef] w-72 p-4 shadow-lg z-50 overflow-y-auto">
           <div className="flex justify-between items-center mb-4">
@@ -179,12 +191,20 @@ const Navbar = () => {
                       <div key={j} className="text-sm text-gray-700 py-1">{item}</div>
                     ) : (
                       <div key={j}>
-                        <div className="text-sm font-medium text-[#ff3366] mt-2">{item.title}</div>
-                        <ul className="ml-3 list-disc">
-                          {item.sub.map((sub, k) => (
-                            <li key={k} className="text-sm py-1">{sub}</li>
-                          ))}
-                        </ul>
+                        <div
+                          className="text-sm font-medium text-[#ff3366] mt-2 flex justify-between items-center cursor-pointer"
+                          onClick={() => toggleMobileSubDropdown(item.title)}
+                        >
+                          {item.title}
+                          <ChevronDown size={12} className={`${mobileSubDropdowns[item.title] ? 'rotate-180' : ''}`} />
+                        </div>
+                        {mobileSubDropdowns[item.title] && (
+                          <ul className="ml-3 mt-1 list-disc">
+                            {item.sub.map((sub, k) => (
+                              <li key={k} className="text-sm text-gray-700 py-1">{sub}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     )
                   ))}
@@ -202,6 +222,7 @@ const Navbar = () => {
         </div>
       )}
 
+      {/* Search Modal */}
       {searchOpen && (
         <div className="fixed inset-0 bg-[#9c3587]/90 flex justify-center items-start pt-20 z-50">
           <div className="bg-white w-11/12 md:w-2/3 lg:w-1/2 rounded-xl p-6 shadow-lg">
@@ -230,6 +251,7 @@ const Navbar = () => {
         </div>
       )}
 
+      {/* Marquee CSS */}
       <style>{`
         .animate-marquee {
           display: inline-block;
@@ -245,3 +267,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
