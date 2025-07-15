@@ -5,6 +5,8 @@ import CategorySlider from './components/CategorySlider';
 import ProductsCarousel from './components/ProductsCarousel';
 import Footer from './components/Footer';
 import InstaWorthy from './components/InstaWorthy';
+import BestsellersMore from './components/BestsellersMore'; 
+import HelpingIndia from './components/HelpingIndia';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Banner />
       <CategorySlider />
       <InstaWorthy/>
+      <BestsellersMore />
+      <HelpingIndia />
       <ProductsCarousel />
       <Footer />
     </div>

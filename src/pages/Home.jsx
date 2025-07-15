@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import CategorySlider from "../components/CategorySlider";
 import InstaWorthy from "../components/InstaWorthy";
+import BestsellersMore from './components/BestsellersMore';
+import HelpingIndia from "../components/HelpingIndia";
 
 
 const images = [
@@ -93,6 +95,11 @@ const Home = () => {
       <CategorySlider /> {/* ⭐ This is the new section */}
       {/* Insta-Worthy Section */}
       <InstaWorthy />
+      <BestsellersMore />
+      {/* Helping India Section */}
+      <HelpingIndia />
+
+      {/* Products Carousel */}
 
       {/* Shop By Category */}
       <section className="px-4 py-8">
