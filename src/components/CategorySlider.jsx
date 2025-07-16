@@ -49,6 +49,7 @@ const CategorySlider = () => {
         From baby bashes to bachelorettes — shop India’s most loved party decor in one click.
       </p>
 
+      {/* Desktop View */}
       <div className="hidden md:grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center">
         {categories.map((item, index) => (
           <div
@@ -63,6 +64,7 @@ const CategorySlider = () => {
         ))}
       </div>
 
+      {/* Mobile View */}
       <div className="relative md:hidden mt-6">
         <button
           onClick={() => handleScroll('left')}
@@ -96,6 +98,7 @@ const CategorySlider = () => {
         </button>
       </div>
 
+      {/* Dots */}
       <div className="md:hidden flex justify-center mt-4 gap-2">
         {Array.from({ length: maxIndex + 1 }).map((_, index) => (
           <span
@@ -105,56 +108,68 @@ const CategorySlider = () => {
         ))}
       </div>
 
+      {/* Marquee */}
       <div className="overflow-hidden mt-8 py-4 bg-[#fff0e1] relative">
         <div className="marquee hover:paused">
-          <div className="marquee-track">
-            {Array(20).fill(null).map((_, i) => (
-              <span
-                key={i}
-                className={`mx-8 whitespace-nowrap ${i % 2 === 0 ? 'text-[#9c3587]' : 'text-[#38b2ac]'}`}
-              >
-                Make every celebration magical {i % 2 === 0 ? '🎈' : '🎉'}
-              </span>
+          <div className="marquee-content">
+            {[...Array(2)].map((_, loop) => (
+              <div key={loop} className="flex gap-12">
+                {Array(10).fill(null).map((_, i) => (
+                  <span
+                    key={`${loop}-${i}`}
+                    className={`whitespace-nowrap ${i % 2 === 0 ? 'text-[#9c3587]' : 'text-[#38b2ac]'}`}
+                  >
+                    Make every celebration magical {i % 2 === 0 ? '🎈' : '🎉'}
+                  </span>
+                ))}
+              </div>
             ))}
           </div>
         </div>
       </div>
 
       <style>{`
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-      font-size: 1.8rem;
-      font-family: 'Apple Chancery', cursive;
-      font-weight: bold;
-    }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
 
-    .marquee-track {
-      display: flex;
-      animation: scroll-left 7s linear infinite;
-    }
+        .marquee {
+          width: 100%;
+          overflow: hidden;
+          font-size: 1.8rem;
+          font-family: 'Apple Chancery', cursive;
+          font-weight: bold;
+        }
 
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
+        .marquee-content {
+          display: flex;
+          width: max-content;
+          animation: scroll-left 80s linear infinite;
+        }
 
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-0%);
-      }
-    }
-  `}</style>
+        .marquee:hover .marquee-content {
+          animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </div>
-
-
-
   );
 };
 
 export default CategorySlider;
+
 
 
 

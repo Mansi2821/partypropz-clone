@@ -47,40 +47,40 @@ const InstaWorthy = () => {
           {instaProducts.map((p, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer w-[260px] md:w-[300px] lg:w-[325px] animate-fade-in-up"
+              className="flex-shrink-0 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer w-[280px] md:w-[340px] lg:w-[380px] animate-fade-in-up"
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
               {/* Image */}
-              <div className="overflow-hidden rounded-t-lg h-[240px] lg:h-[260px]">
+              <div className="overflow-hidden rounded-t-xl h-[280px] lg:h-[300px]">
                 <img
                   src={p.image}
                   alt={p.name}
                   loading="lazy"
-                  className="w-full h-full object-cover hover:animate-zoom"
+                  className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
               </div>
 
               {/* Text Container */}
-              <div className="bg-[#fdf6ef] p-4">
-                <h4 className="text-[#9c3587] font-semibold text-sm md:text-base lg:text-lg mb-2 line-clamp-2 min-h-[48px]">
+              <div className="bg-[#fdf6ef] p-4 text-center">
+                <h4 className="text-[#9c3587] font-semibold text-base md:text-lg lg:text-xl mb-2 hover:underline underline-offset-4 decoration-[#9c3587] min-h-[52px]">
                   {p.name}
                 </h4>
 
                 {/* Star Ratings */}
-                <div className="flex items-center gap-1 mb-2">
+                <div className="flex justify-center items-center gap-1 mb-2">
                   {Array(5).fill(0).map((_, i) => (
                     <Star key={i} size={16} fill="#facc15" stroke="#facc15" />
                   ))}
                 </div>
 
                 {/* Pricing & Add Button */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col items-center gap-2">
                   <div>
                     <span className="text-[#9c3587] font-bold text-base lg:text-lg">₹{p.salePrice}</span>
                     <span className="text-gray-400 line-through text-sm ml-2">₹{p.origPrice}</span>
                   </div>
-                  <button className="bg-[#9c3587] hover:bg-[#ff3366] text-white py-1.5 px-4 rounded text-sm transition-all duration-300 hover:scale-105">
-                    Add
+                  <button className="bg-[#9c3587] hover:bg-[#9c3587]/50 text-white py-2 px-8 rounded-md text-sm font-medium transition-all duration-300">
+                    Add to Cart
                   </button>
                 </div>
               </div>
@@ -120,18 +120,32 @@ const InstaWorthy = () => {
         .animate-fade-in-up {
           animation: fadeInUp 0.6s ease forwards;
         }
-
-        @keyframes zoomImage {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.08); }
-          100% { transform: scale(1); }
-        }
-        .hover\\:animate-zoom:hover {
-          animation: zoomImage 1.5s ease-in-out infinite;
-        }
       `}</style>
     </section>
   );
 };
 
 export default InstaWorthy;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
