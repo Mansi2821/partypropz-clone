@@ -4,6 +4,8 @@ import CategorySlider from "../components/CategorySlider";
 import InstaWorthy from "../components/InstaWorthy";
 import BestsellersMore from './components/BestsellersMore';
 import HelpingIndia from "../components/HelpingIndia";
+import RecommendedProducts from "../components/RecommendedProducts";
+import AlsoFindUs from "../components/AlsoFindUs";
 
 
 const images = [
@@ -98,6 +100,10 @@ const Home = () => {
       <BestsellersMore />
       {/* Helping India Section */}
       <HelpingIndia />
+      {/* Recommended Products Section */}
+      <RecommendedProducts/>
+      {/* Also Find Us Section */}
+      <AlsoFindUs/>
 
       {/* Products Carousel */}
 

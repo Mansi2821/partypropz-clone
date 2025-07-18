@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import InstaWorthy from './components/InstaWorthy';
 import BestsellersMore from './components/BestsellersMore'; 
 import HelpingIndia from './components/HelpingIndia';
+import RecommendedProducts from './components/RecommendedProducts';
+import AlsoFindUs from './components/AlsoFindUs';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <InstaWorthy/>
       <BestsellersMore />
       <HelpingIndia />
+      <RecommendedProducts/>
+      <AlsoFindUs />
       <ProductsCarousel />
       <Footer />
     </div>
