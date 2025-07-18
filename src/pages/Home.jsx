@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import CategorySlider from "../components/CategorySlider";
+import ConfettiTrigger from "./components/ConfettiTrigger";
 import InstaWorthy from "../components/InstaWorthy";
 import BestsellersMore from './components/BestsellersMore';
 import HelpingIndia from "../components/HelpingIndia";
 import RecommendedProducts from "../components/RecommendedProducts";
 import AlsoFindUs from "../components/AlsoFindUs";
+
+import InspirationInsights from "../components/InspirationInsights";
+import Footer from "../components/Footer";
+
 
 
 const images = [
@@ -93,8 +98,12 @@ const Home = () => {
         </button>
       </div>
 
+      {/* Confetti Trigger */}
+      <ConfettiTrigger />
+
       {/* Category Card Slider (like original site) */}
       <CategorySlider /> {/* ⭐ This is the new section */}
+      
       {/* Insta-Worthy Section */}
       <InstaWorthy />
       <BestsellersMore />
@@ -104,8 +113,10 @@ const Home = () => {
       <RecommendedProducts/>
       {/* Also Find Us Section */}
       <AlsoFindUs/>
-
-      {/* Products Carousel */}
+      {/* Inspiration Insights Section */}
+      <InspirationInsights />
+      {/* Footer */}
+      <Footer />
 
       {/* Shop By Category */}
       <section className="px-4 py-8">
@@ -147,4 +158,5 @@ const Home = () => {
 };
 
 export default Home;
+
 

@@ -14,7 +14,7 @@ const AlsoFindUs = () => {
     const styles = document.createElement("style");
     styles.innerHTML = `
       .also-find-us-section {
-        background-color: #fff3e6;
+        background-color: #fff7f2;
         padding: 3rem 1rem;
         text-align: center;
       }
