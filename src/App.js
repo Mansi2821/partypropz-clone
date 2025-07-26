@@ -9,12 +9,14 @@ import BestsellersMore from './components/BestsellersMore';
 import HelpingIndia from './components/HelpingIndia';
 import RecommendedProducts from './components/RecommendedProducts';
 import AlsoFindUs from './components/AlsoFindUs';
+import ConfettiTrigger from './components/ConfettiTrigger';
 
 function App() {
   return (
     <div className="App font-sans">
       <Navbar />
       <Banner />
+      <ConfettiTrigger />
       <CategorySlider />
       <InstaWorthy/>
       <BestsellersMore />
